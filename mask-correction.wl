@@ -34,7 +34,7 @@ interpPoints[selectedpts_, initmask_, interpthresh_] := Module[{pts = selectedpt
     ] /; Length@selectedpts > 0;
 
 correctSegmentation[image_?ImageQ, correspondingMask_?ImageQ, saveDir_?StringQ] := With[{boxwidth = 10, interp = 0.01, magmask = 5,
-magimage = 10, imgdim = ImageDimensions@image},
+magimage = 10, imagedim = ImageDimensions@image},
   Module[{img = image, imgmask = correspondingMask, saveLink = saveDir},
    zoomMask[x_, y_, immask_] := Module[{row1, row2, col1, col2},
      CompoundExpression[If[imagedim[[2]] - y - boxwidth <= 0, row1 = 0, 
